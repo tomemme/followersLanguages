@@ -44,6 +44,8 @@ The **GitHub Follower Language Analysis** tool is designed to analyze the progra
 3. **View Results:**
    - The program will generate a bar chart or pie chart (depending on your choice) that visualizes the programming languages used by your followers.
 
+![GUI](https://github.com/tomemme/followersLanguages/blob/master/graphExample.PNG)
+
 ### Project Structure
 
 - **`main.py`**: The entry point for running the analysis.
