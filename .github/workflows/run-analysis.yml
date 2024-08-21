@@ -1,0 +1,34 @@
+name: GitHub Follower Language Analysis
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  analyze-followers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          . venv/bin/activate
+          pip install -r requirements.txt
+
+      - name: Run analysis script
+        env:
+          FOLLOWERS_TOKEN: ${{ secrets.FOLLOWERS_TOKEN }}
+          FOLLOWERS_USERNAME: ${{ secrets.FOLLOWERS_USERNAME }}
+        run: |
+          . venv/bin/activate
+          python main.py
